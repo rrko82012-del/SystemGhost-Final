@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt") 
+    kotlin("kapt")
 }
 
 android {
@@ -34,13 +34,12 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     
-    // Room + SQLite Fix (الحل المباشر لخطأ الصورة الأخيرة)
-    val roomVersion = "2.6.1"
+    // إصدار مستقر جداً لضمان نجاح البناء على GitHub
+    val roomVersion = "2.5.2" 
     implementation("androidx.room:room-runtime:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
     kapt("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.sqlite:sqlite-framework:2.4.0") 
+    implementation("androidx.sqlite:sqlite-framework:2.3.1")
 
-    // Xposed
     compileOnly("de.robv.android.xposed:api:82")
 }
