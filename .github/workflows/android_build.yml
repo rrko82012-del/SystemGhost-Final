@@ -21,4 +21,3 @@ jobs:
         with:
           name: SystemGhost-Final
           path: app/build/outputs/apk/debug/*.apk
-concurrency: 
