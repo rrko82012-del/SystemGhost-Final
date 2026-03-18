@@ -6,23 +6,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      # بدلاً من استخدام ./gradlew المكسور، سنستخدم gradle المثبت في النظام
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
-          gradle-version: 8.5 # نسخة مستقرة جداً
+          gradle-version: 8.5 # استخدام نسخة نظام ثابتة
 
       - name: Build with Gradle
-        run: gradle assembleDebug --stacktrace
+        run: gradle assembleDebug --stacktrace # استخدام gradle بدلاً من ./gradlew
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: SystemGhost-Ready
+          name: SystemGhost-Final-APK
           path: app/build/outputs/apk/debug/*.apk
