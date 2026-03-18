@@ -16,12 +16,6 @@ android {
         versionName = "1.0"
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -32,11 +26,11 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     
-    // الحل المستقر لمشكلة Room في بيئة GitHub
-    val room_version = "2.5.2" 
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
+    // إصدارات مستقرة تماماً لبيئة GitHub
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
     
     compileOnly("de.robv.android.xposed:api:82")
 }
