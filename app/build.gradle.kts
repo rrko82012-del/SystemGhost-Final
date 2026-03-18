@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt") 
+    id("kotlin-kapt")
 }
 
 android {
@@ -31,14 +31,12 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     
-    // خلطة Room المستقرة لبيئة الـ CI
-    val roomVersion = "2.6.1"
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.sqlite:sqlite-framework:2.4.0") 
-
+    // الحل المستقر لمشكلة Room في بيئة GitHub
+    val room_version = "2.5.2" 
+    implementation("androidx.room:room-runtime:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    
     compileOnly("de.robv.android.xposed:api:82")
 }
