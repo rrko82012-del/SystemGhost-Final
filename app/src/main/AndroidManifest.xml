@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.microsoft.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:label="SystemGhost"
-        android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name=".data.SystemGhostContentProvider"
+            android:authorities="com.example.systemghost.provider"
+            android:exported="true" />
+
         <meta-data
             android:name="xposedmodule"
             android:value="true" />
-        <meta-data android:name="xposeddescription" android:value="SystemGhost Spoofer" />
-        <meta-data android:name="xposedminversion" android:value="82" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="SystemGhost: Advanced Telemetry & Identity Spoofing Layer" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="93" />
+
     </application>
+
 </manifest>
